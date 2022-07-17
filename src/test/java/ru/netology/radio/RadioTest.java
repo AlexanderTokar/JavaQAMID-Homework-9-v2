@@ -9,12 +9,22 @@ public class RadioTest {
 
     @Test
     public void shouldChangeStationWithLombok() {
-        Radio rad = new Radio(0, 0, 20, 10, 0, 100);
-        rad.setCurrentStation(15);
+        Radio rad = new Radio(15, 0, 100, 15, 0, 100);
+        rad.setCurrentStation(16);
 
-        int exp = 15;
+        int exp = 16;
         int act = rad.getCurrentStation();
         Assertions.assertEquals(exp , act);
+    }
+
+    @Test
+    public void shouldChangeStationWithLombokV2 () {
+        Radio rad = new Radio(0, 0, 10, 0, 0, 100);
+        rad.setCurrentStation(0);
+
+        int exp = 0;
+        int act = rad.getCurrentStation();
+        Assertions.assertEquals(exp, act);
     }
 
     @Test

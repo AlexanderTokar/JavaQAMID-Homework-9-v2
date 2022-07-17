@@ -68,6 +68,11 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
+                            <excludes>
+                                <exclude>
+                                    **/*Radio.class
+                                </exclude>
+                            </excludes>
                             <rules>
                                 <rule>
                                     <limits>
