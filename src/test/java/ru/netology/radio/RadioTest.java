@@ -14,6 +14,7 @@ public class RadioTest {
 
         int exp = 15;
         int act = rad.getCurrentStation();
+        Assertions.assertEquals(exp , act);
     }
 
     @Test
