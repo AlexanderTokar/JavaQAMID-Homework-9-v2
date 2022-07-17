@@ -8,6 +8,15 @@ public class RadioTest {
     Radio rad = new Radio();
 
     @Test
+    public void shouldChangeStationWithLombok() {
+        Radio rad = new Radio(0, 0, 20, 10, 0, 100);
+        rad.setCurrentStation(15);
+
+        int exp = 15;
+        int act = rad.getCurrentStation();
+    }
+
+    @Test
     public void shouldChangeStationWithNewMaxStation() {
         Radio rad = new Radio(20);
         rad.setCurrentStation(15);
