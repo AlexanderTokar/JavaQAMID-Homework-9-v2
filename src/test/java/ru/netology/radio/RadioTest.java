@@ -5,6 +5,48 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
+    Radio rad = new Radio();
+
+    @Test
+    public void shouldChangeStationWithLombok() {
+        Radio rad = new Radio(15, 0, 100, 15, 0, 100);
+        rad.setCurrentStation(16);
+
+        int exp = 16;
+        int act = rad.getCurrentStation();
+        Assertions.assertEquals(exp , act);
+    }
+
+    @Test
+    public void shouldChangeStationWithLombokV2 () {
+        Radio rad = new Radio(0, 0, 10, 0, 0, 100);
+        rad.setCurrentStation(0);
+
+        int exp = 0;
+        int act = rad.getCurrentStation();
+        Assertions.assertEquals(exp, act);
+    }
+
+    @Test
+    public void shouldChangeStationWithNewMaxStation() {
+        Radio rad = new Radio(20);
+        rad.setCurrentStation(15);
+
+        int exp = 15;
+        int act = rad.getCurrentStation();
+        Assertions.assertEquals(exp, act);
+    }
+
+    @Test
+    public void shouldNotChangeStationAboveNewMaxStation() {
+        Radio rad = new Radio(20);
+        rad.setCurrentStation(20);
+
+        int exp = 0;
+        int act = rad.getCurrentStation();
+        Assertions.assertEquals(exp, act);
+    }
+
     @Test
     public void shouldChangeStation() {
         Radio rad = new Radio();
@@ -83,9 +125,9 @@ public class RadioTest {
     @Test
     public void shouldChangeVolume() {
         Radio rad = new Radio();
-        rad.setCurrentVolume(10);
+        rad.setCurrentVolume(99);
 
-        int exp = 10;
+        int exp = 99;
         int act = rad.getCurrentVolume();
 
         Assertions.assertEquals(exp, act);
@@ -105,7 +147,7 @@ public class RadioTest {
     @Test
     public void shouldNotChangeVolumeAboveMaxValue() {
         Radio rad = new Radio();
-        rad.setCurrentVolume(11);
+        rad.setCurrentVolume(101);
 
         int exp = 0;
         int act = rad.getCurrentVolume();
@@ -128,10 +170,10 @@ public class RadioTest {
     @Test
     public void shouldNotIncreaseVolumeAboveLimit() {
         Radio rad = new Radio();
-        rad.setCurrentVolume(10);
+        rad.setCurrentVolume(100);
         rad.increaseVolume();
 
-        int exp = 10;
+        int exp = 100;
         int act = rad.getCurrentVolume();
 
         Assertions.assertEquals(exp, act);
@@ -161,4 +203,3 @@ public class RadioTest {
         Assertions.assertEquals(exp, act);
     }
 }
-
